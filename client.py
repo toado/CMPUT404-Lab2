@@ -7,6 +7,7 @@ BUFFER_SIZE = 4096
 
 # Creating a client socket (the endpoint of a conversation)
 def create_TCP_socket():
+    print("\nAttempting to create socket . . .")
     try:
         # AF_INET refers to IPV4
         # SOCK_STREAM refers to TCP
@@ -20,7 +21,7 @@ def create_TCP_socket():
 
 # Get host IP
 def get_remote_ip():
-    print(f'Getting IP for {HOST}')
+    print(f'Attempting to get IP for {HOST} . . .')
     try:
         remote_ip = socket.gethostbyname(HOST)
 
@@ -33,7 +34,7 @@ def get_remote_ip():
 
 # Send data to server
 def send_data(sock, payload):
-    print("Sending payload")
+    print("Sending payload . . .")
     try:
         sock.sendall(payload.encode())
 
@@ -48,7 +49,7 @@ def main():
         sock = create_TCP_socket()    
         remote_ip = get_remote_ip()
         sock.connect((remote_ip, PORT))
-        print("Socket connected to {} on ip {}".format(HOST, remote_ip))
+        print("Socket connected to {} on IP: {}".format(HOST, remote_ip))
 
         # Send data & shutdown
         send_data(sock, PAYLOAD)
