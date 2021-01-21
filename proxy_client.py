@@ -22,7 +22,7 @@ def create_and_connect(address):
 def main():
   address = [(HOST, PORT)]
   with Pool() as p:
-    p.map(create_and_connect, address*10)
+    p.map(create_and_connect, address*5)
 
 if __name__ == "__main__":
   main()

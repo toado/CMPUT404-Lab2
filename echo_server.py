@@ -1,9 +1,19 @@
 # Code Template Sourced from https://docs.python.org/3/library/socket.html#socket.socket.recv
 import socket
+from multiprocessing import Process
 
 HOST = ""   # Symbolic name meaning all available interfaces
 PORT = 8001 
 BUFFERSIZE = 1024
+
+def handle_connection(conn, addr):
+  # Receive the incoming data and send it back to the client
+  with conn:
+    data = conn.recv(BUFFERSIZE)
+    print("Data received: {}\n".format(data))
+
+    conn.sendall(data)
+  
 
 def main():
   with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
@@ -20,13 +30,9 @@ def main():
       print("Connection information: {}".format(conn))
       print(f'Connected by: {addr}')
 
-      # Receive the incoming data and send it back to the client
-      with conn:
-        data = conn.recv(BUFFERSIZE)
-        print("Data received: {}\n".format(data))
+      p = Process(target=handle_connection, args=(conn, addr), daemon=True)
+      p.start()
 
-        conn.sendall(data)
-  
 if __name__ == "__main__":
   main()
   

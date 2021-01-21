@@ -46,7 +46,7 @@ def main():
 
       p = Process(target=handle_connection, args=(client_conn, client_addr), daemon=True)
       p.start()
-      # client_conn.close()
+      client_conn.close()
 
 if __name__ == "__main__":
   main()
