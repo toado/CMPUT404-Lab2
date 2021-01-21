@@ -16,7 +16,7 @@ def create_and_connect(address):
     sock.sendall(PAYLOAD.encode())
 
     data = sock.recv(BUFFERSIZE)
-    print("Data received: {}".format(repr(data)))
+    print("Data received:\n\t{}".format(repr(data)))
 
 # To test threading; code below shown from Monday's lab
 def main():
@@ -24,6 +24,6 @@ def main():
   with Pool() as p:
     p.map(create_and_connect, address*10)
 
-if __name__ == "__main __":
-  # main()
-  create_and_connect((HOST, PORT))
+if __name__ == "__main__":
+  main()
+  # create_and_connect((HOST, PORT))
