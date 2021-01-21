@@ -14,7 +14,7 @@ def main():
     server.bind((HOST, PORT))
     server.listen(1)
     
-    # Continue to listen for requests and accept them until forcefully closed
+    # Continue to listen for connection requests and accept them until forcefully closed
     while True:
       conn, addr = server.accept()
       print("Connection information: {}".format(conn))
@@ -29,3 +29,4 @@ def main():
   
 if __name__ == "__main__":
   main()
+  
