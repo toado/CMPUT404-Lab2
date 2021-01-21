@@ -1,3 +1,4 @@
+# Code Template Sourced from https://docs.python.org/3/library/socket.html#socket.socket.recv
 import socket
 
 HOST = ""   # Symbolic name meaning all available interfaces
