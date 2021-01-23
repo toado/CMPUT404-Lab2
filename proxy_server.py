@@ -21,6 +21,7 @@ def handle_connection(client_conn, client_addr):
       proxy.connect((PROXY_HOST, PROXY_PORT))
 
       # Forward client data (its payload) to google
+      print("THIS IS CLIENT DATA", client_data)
       proxy.sendall(client_data)
 
       # With google's response, send it back to the client
