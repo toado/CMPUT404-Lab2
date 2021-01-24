@@ -16,9 +16,3 @@ Question 5: What is returned by recv() from the server after it is done sending 
 
 Question 6: Provide a link to your code on GitHub.
 - https://github.com/toado/CMPUT404-Lab2
-
-Info!
-
-BSD Socket Interfaces
-- Set of standard function calls that can be used in a an application that allows programmers to add Internet communications to their product (network protocols)
-- Will be using the socket module to allow access to these interfaces 
